@@ -2,7 +2,7 @@ from haystack import Pipeline
 from haystack.document_stores.in_memory import InMemoryDocumentStore
 from haystack.components.retrievers import InMemoryEmbeddingRetriever
 from haystack.components.converters import TextFileToDocument
-from haystack.components.preprocessors import DocumentCleaner, DocumentSplitter
+from haystack.components.preprocessors import DocumentCleaner, DocumentSplitter, JiebaDocumentSplitter
 from haystack.components.writers import DocumentWriter
 from haystack.components.builders import ChatPromptBuilder
 from haystack.dataclasses import ChatMessage
@@ -18,6 +18,7 @@ document_store = InMemoryDocumentStore()
 text_file_converter = TextFileToDocument()  # 文本文件转换器 - https://docs.haystack.deepset.ai/docs/textfiletodocument
 cleaner = DocumentCleaner()  # 文档清理器 - https://docs.haystack.deepset.ai/docs/documentcleaner
 splitter = DocumentSplitter()  # 文档分割器 - https://docs.haystack.deepset.ai/docs/documentsplitter
+splitter = JiebaDocumentSplitter()  # 使用中文语言模型
 embedder = OllamaDocumentEmbedder(model="nomic-embed-text", url="http://localhost:11434")  # 文档嵌入器 - https://docs.haystack.deepset.ai/docs/ollamadocumentembedder
 writer = DocumentWriter(document_store)  # 文档写入器 - https://docs.haystack.deepset.ai/docs/documentwriter
 

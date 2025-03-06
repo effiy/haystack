@@ -13,6 +13,7 @@ _import_structure = {
     "document_cleaner": ["DocumentCleaner"],
     "document_splitter": ["DocumentSplitter"],
     "recursive_splitter": ["RecursiveDocumentSplitter"],
+    "jieba_document_splitter": ["JiebaDocumentSplitter"],
     "text_cleaner": ["TextCleaner"],
 }
 
@@ -22,6 +23,7 @@ if TYPE_CHECKING:
     from .document_cleaner import DocumentCleaner
     from .document_splitter import DocumentSplitter
     from .recursive_splitter import RecursiveDocumentSplitter
+    from .jieba_document_splitter import JiebaDocumentSplitter
     from .text_cleaner import TextCleaner
 
 else:
