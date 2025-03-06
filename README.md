@@ -8,8 +8,6 @@
 
 ## 特性 (Features)
 
-> [!IMPORTANT] > **您当前正在查看 Haystack 2.0 的说明文档**。我们仍在维护 Haystack 1.x，以便给用户提供充分的时间迁移到 2.0 版本。[点此切换到 Haystack 1.x](https://github.com/deepset-ai/haystack/tree/v1.x)。
-
 - **技术无关性：** 用户可灵活选择所需的供应商或技术，并轻松替换任何组件。Haystack 支持使用和比较来自 OpenAI、Cohere 和 Hugging Face 的模型，以及您自己的本地模型或部署在 Azure、Bedrock 和 SageMaker 上的模型。
 - **透明性：** 清晰展示不同组件之间的交互方式，便于适配您的技术栈和具体用例。
 - **灵活性：** Haystack 提供一站式工具集：数据库访问、文件转换、数据清理、文本分割、模型训练、评估、推理等。需要自定义功能时，创建专属组件也非常简便。
@@ -28,12 +26,3 @@
 ## 🖖 社区 (Community)
 
 如需提出功能请求或报告错误，请随时在 [Github 上创建 issue](https://github.com/deepset-ai/haystack/issues)。我们定期检查并快速响应这些问题。若想讨论特定主题或获取关于如何将 Haystack 应用到您项目的建议，可以在 [Github Discussions](https://github.com/deepset-ai/haystack/discussions) 或我们的 [Discord 社区](https://discord.com/invite/VBpFzsgRVF)发起讨论。我们也活跃在 [𝕏 (Twitter)](https://twitter.com/haystack_ai) 和 [Stack Overflow](https://stackoverflow.com/questions/tagged/haystack)。
-
-## 为 Haystack 做贡献 (Contributing to Haystack)
-
-我们热烈欢迎社区贡献 - 从修复错别字到开发全新功能！您无需成为 Haystack 专家即可提供有价值的改进。开始贡献前，请先阅读我们的[贡献指南](https://github.com/deepset-ai/haystack/blob/main/CONTRIBUTING.md)。
-
-您可通过以下方式为 Haystack 做贡献：
-
-- 为 Haystack 核心项目贡献代码
-- 在 [haystack-core-integrations](https://github.com/deepset-ai/haystack-core-integrations) 仓库中开发新的集成组件
