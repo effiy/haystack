@@ -1,57 +1,56 @@
-# :ledger: Looking for the docs?
+## 概述、组件、管道节点和指南
 
-You can find Haystack's documentation at https://docs.haystack.deepset.ai/.
+Haystack 文档可在官方网站查阅：https://docs.haystack.deepset.ai/docs/get_started。我们欢迎您的贡献，请按以下步骤操作：
 
-# :computer: How to update docs?
+1. 确认您在正确的文档版本（查看左上角版本选择器）
+2. 点击页面右上角的"建议编辑"链接
+3. 直接在文档中进行修改并点击**提交建议的编辑**
+4. 可选：添加评论说明您的更改
 
-## Overview, Components, Pipeline Nodes, and Guides
+我们处理完您的建议后，会通过邮件通知您更改是否已被合并，如未合并会说明原因。
 
-You can find these docs on the Haystack Docs page: https://docs.haystack.deepset.ai/docs/get_started. If you want to contribute, and we welcome every contribution, do the following:
-1. Make sure you're on the right version (check the version expanding list in the top left corner).
-2. Use the "Suggest Edits" link you can find in the top right corner of every page.
-3. Suggest a change right in the docs and click **Submit Suggested Edits**.
-4. Optionally, leave us a comment and submit your change.
+请务必查阅我们的[贡献指南](https://github.com/deepset-ai/haystack/blob/main/CONTRIBUTING.md)。
 
-Once we take care of it, you'll get an email telling you the change's been merged, or not. If not, we'll give you the reason why.
+## 教程
 
-Make sure to check our [Contribution Guidelines](https://github.com/deepset-ai/haystack/blob/main/CONTRIBUTING.md).
+教程位于独立仓库：https://github.com/deepset-ai/haystack-tutorials。如需贡献教程，请参阅[教程贡献指南](https://github.com/deepset-ai/haystack-tutorials/blob/main/Contributing.md#contributing-to-haystack-tutorials)。
 
-## Tutorials
+## API 参考
 
-The Tutorials live in a separate repo: https://github.com/deepset-ai/haystack-tutorials. For instructions on how to contribute to tutorials, see [Contributing to Tutorials](https://github.com/deepset-ai/haystack-tutorials/blob/main/Contributing.md#contributing-to-haystack-tutorials).
+我们使用 Pydoc-Markdown 从代码文档字符串自动生成 Markdown 文件。每次提交时，GitHub Action 会自动重新生成 API 页面。
 
-## API Reference
+若要为新的 Haystack 模块创建文档，请在 `docs/src/api/api` 目录中创建配置 Pydoc-Markdown 的 `.yml` 文件并提交到主分支。
 
-We use Pydoc-Markdown to create Markdown files from the docstrings in our code. There is a Github Action that regenerates the API pages with each commit.
+所有文档字符串的更新在提交到主分支后会自动更新到文档中。
 
-If you want to generate a new Markdown file for a new Haystack module, create a `.yml` file in `docs/src/api/api` which configures how Pydoc-Markdown will generate the page and commit it to main.
+### 配置
 
-All the updates to doctrings get pushed to documentation when you commit to the main branch.
+Pydoc 从 `/haystack/docs/_src/api/pydoc` 目录下的 `.yml` 文件读取配置，主要包含三个部分：
 
-### Configuration
+- **loader**：加载 Python 源文件中 API 对象的插件
 
-Pydoc will read the configuration from a `.yml` file which is located under `/haystack/docs/_src/api/pydoc`. Our files contain three main sections:
+  - **type**：Python 源文件加载器
+  - **search_path**：源文件位置
+  - **modules**：用于生成文档的模块
+  - **ignore_when_discovered**：需要忽略的文件
 
-- **loader**: A list of plugins that load API objects from python source files.
-    - **type**: Loader for python source files
-    - **search_path**: Location of source files
-    - **modules**: Module which are used for generating the markdown file
-    - **ignore_when_discovered**: Define which files should be ignored
-- **processor**: A list of plugins that process API objects to modify their docstrings (e.g. to adapt them from a documentation format to Markdown or to remove items that should not be rendered into the documentation).
-    - **type: filter**: Filter for specific modules
-    - **documented_only**: Only documented API objects
-    - **do_not_filter_modules**: Do not filter module objects
-    - **skip_empty_modules**: Skip modules without content
-- **renderer**: A plugin that produces the output files. We use a custom ReadmeRenderer based on the Markdown renderer. It makes sure the Markdown files comply with ReadMe requirements.
-    - **type**: Define the renderer which you want to use. We are using the ReadmeRenderer to make sure the files display properly in ReadMe.
-    - **excerpt**: Add a short description of the page. It shows up right below the page title.
-    - **category**: This is the ReadMe category ID to make sure the doc lands in the right section of Haystack docs.
-    - **title**: The title of the doc as it will appear on the website. Make sure you always add "API" at the end.
-    - **slug**: The page slug, each word should be separated with a dash.
-    - **order**: Pages are ordered alphabetically. This defines where in the TOC the page lands.
-    - markdown:
-        - **descriptive_class_title**: Remove the word "Object" from class titles.
-        - **descriptive_module_title**: Adding the word “Module” before the module name.
-        - **add_method_class_prefix**: Add the class name as a prefix to method names.
-        - **add_member_class_prefix**: Add the class name as a prefix to member names.
-        - **filename**: File name of the generated file, use underscores to separate each word.
+- **processor**：处理 API 对象文档字符串的插件
+
+  - **type: filter**：模块过滤器
+  - **documented_only**：仅包含已文档化的对象
+  - **do_not_filter_modules**：不过滤模块对象
+  - **skip_empty_modules**：跳过空模块
+
+- **renderer**：生成输出文件的插件
+  - **type**：渲染器类型（我们使用 ReadmeRenderer 确保文件在 ReadMe 中正确显示）
+  - **excerpt**：页面简短描述
+  - **category**：ReadMe 类别 ID
+  - **title**：文档显示标题（确保末尾添加"API"）
+  - **slug**：页面别名（单词间用破折号分隔）
+  - **order**：页面在目录中的位置
+  - markdown:
+    - **descriptive_class_title**：从类标题中移除"Object"
+    - **descriptive_module_title**：在模块名称前添加"Module"
+    - **add_method_class_prefix**：将类名作为方法名前缀
+    - **add_member_class_prefix**：将类名作为成员名前缀
+    - **filename**：生成文件的文件名（单词间用下划线分隔）
