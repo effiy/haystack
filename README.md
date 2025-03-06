@@ -2,7 +2,7 @@
 
 ## 文档 (Documentation)
 
-新用户请先阅读["什么是 Haystack?"](https://haystack.deepset.ai/overview/intro)，然后参考["快速入门指南"](https://haystack.deepset.ai/overview/quick-start)，几分钟内即可构建您的首个 LLM 应用。进一步学习可通过[教程](https://haystack.deepset.ai/tutorials)深入了解。对于高级用例或寻找灵感，可以在[Cookbook](https://haystack.deepset.ai/cookbook)中浏览丰富的 Haystack 示例。
+新用户请先阅读["什么是 Haystack?"](https://haystack.deepset.ai/overview/intro)，然后参考["快速入门指南"](https://haystack.deepset.ai/overview/quick-start)，几分钟内即可构建您的首个 LLM 应用。进一步学习可通过[教程](https://haystack.deepset.ai/tutorials)深入了解。对于高级用例或寻找灵感，可以在[Cookbook](https://haystack.deepset.ai/cookbook)中浏览丰富的 Haystack 示例。您可以使用 [OllamaGenerator](https://github.com/deepset-ai/haystack-integrations/blob/main/integrations/ollama.md) 在 Haystack 管道中集成 Ollama 模型。
 
 随时查阅[官方文档](https://docs.haystack.deepset.ai/docs/intro)获取更全面的 Haystack 信息，了解其功能和底层技术原理。
 
@@ -26,3 +26,7 @@
 ## 🖖 社区 (Community)
 
 如需提出功能请求或报告错误，请随时在 [Github 上创建 issue](https://github.com/deepset-ai/haystack/issues)。我们定期检查并快速响应这些问题。若想讨论特定主题或获取关于如何将 Haystack 应用到您项目的建议，可以在 [Github Discussions](https://github.com/deepset-ai/haystack/discussions) 或我们的 [Discord 社区](https://discord.com/invite/VBpFzsgRVF)发起讨论。我们也活跃在 [𝕏 (Twitter)](https://twitter.com/haystack_ai) 和 [Stack Overflow](https://stackoverflow.com/questions/tagged/haystack)。
+
+## 常见问题 (FAQ)
+
+- [这个框架可以用于中文全文搜索吗？](https://github.com/deepset-ai/haystack/discussions/5471)
